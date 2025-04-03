@@ -54,6 +54,11 @@
               jibunAddress: jibunAddress,
               zonecode: data.zonecode,
             };
+
+            if (window.flutterAddressHandler) {
+              window.flutterAddressHandler.postMessage(JSON.stringify(postData));
+            }
+            
             window.postMessageToiOS(postData);
           },
           width: "100%",
